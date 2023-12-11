@@ -1,12 +1,14 @@
 const express = require('express');
+const setupDatabase = require('./src/db/setupDatabase');
 const app = express();
-const PORT = process.env.PORT || 3001;
+
 const usuarioController = require('./src/controllers/UsuarioController');
 const jogoController = require('./src/controllers/JogoController');
 const compraController = require('./src/controllers/CompraController');
+
+const PORT = 3001;
 const pool = require('./src/db/dbConection');
-const setupDatabase = require('./src/db/setupDatabase');
-const cors = require('cors');
+const cors = require('cors'); // Segurança
 
 app.use(cors());
 app.use(express.json());
